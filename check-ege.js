@@ -1,4 +1,4 @@
-var ver = "1.0.1";
+var ver = "1.0.2";
 var checkTimer, frame, lastTable;
 
 function init() {
@@ -13,13 +13,13 @@ function init() {
 	frame = document.getElementById("mainframe");
 	frame.onload = onFrameLoad;
 	if(window.localStorage.notify === undefined)
-		window.localStorage.notify = false;
-	if(window.localStorage.notify)
+		window.localStorage.notify = "false";
+	if(window.localStorage.notify == "true")
 		enableNotifications();
 }
 
 function switchNotifications() {
-	if(!window.localStorage.notify)
+	if(window.localStorage.notify != "true")
 		tryEnableNotifications();
 	else
 		disableNotifications()
@@ -33,7 +33,7 @@ function tryEnableNotifications() {
 }
 
 function enableNotifications() {
-	window.localStorage.notify = true;
+	window.localStorage.notify = "true";
 	checkTimer = setInterval(updatePage, 60000);
 	
 	var el = document.getElementById("notification-status");
@@ -44,7 +44,7 @@ function enableNotifications() {
 }
 
 function disableNotifications() {
-	window.localStorage.notify = false;
+	window.localStorage.notify = "false";
 	clearInterval(checkTimer);
 	
 	var el = document.getElementById("notification-status");
@@ -62,7 +62,7 @@ function onFrameLoad() {
 	var now = new Date();
 	document.getElementById("lastUpdate").innerHTML = now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
 	frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
-	if(window.localStorage.notify) {
+	if(window.localStorage.notify == "true") {
 		if(lastTable != frame.contentDocument.getElementById("table-container").innerHTML)
 			changeNotify();
 	}
