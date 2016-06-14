@@ -4,8 +4,7 @@
 1. Зайти и залогиниться на сайте check.ege.edu.ru
 2. Нажать F12
 3. Перейти на вкладку Console
-4. Вставить этот скрипт и нажать ENTER:
-var s=document.createElement('script');s.id="xLivan-check-ege-notifier";s.src="https://rawgit.com/xLivan/check-ege-notifier/master/check-ege.js";document.body.previousElementSibling.appendChild(s);
+4. Вставить этот скрипт и нажать ENTER: ```var s=document.createElement('script');s.id="xLivan-check-ege-notifier";s.src="https://rawgit.com/xLivan/check-ege-notifier/master/check-ege.js";document.body.previousElementSibling.appendChild(s);```
 5. Нажать F12
 
 Profit. Раз в минуту скрипт "обновляет" страницу и сравнивает результаты.
