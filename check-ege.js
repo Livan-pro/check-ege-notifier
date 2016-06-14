@@ -1,4 +1,4 @@
-var ver = "1.0";
+var ver = "1.0.1";
 var checkTimer, frame, lastTable;
 
 function init() {
@@ -19,7 +19,7 @@ function init() {
 }
 
 function switchNotifications() {
-	if(!notify)
+	if(!window.localStorage.notify)
 		tryEnableNotifications();
 	else
 		disableNotifications()
